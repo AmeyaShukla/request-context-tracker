@@ -50,9 +50,9 @@ function id() {
  * restify middleware function for setting tracer id;
  * @param {options} param
  */
-function restifyMiddleware({useHeader = false, headerName = null}) {
+function restifyMiddleware(options) {
     function restifyPluginHandler(req, res, next) {
-        if(useHeader) set({tracerId: req.headers[headerName]})
+        if(options && options.useHeader) set({tracerId: req.headers[(options && options.headerName)]})
         else set({tracerId: uuidv4()})
         next();
     }
