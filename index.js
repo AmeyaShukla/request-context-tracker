@@ -16,19 +16,34 @@ function destroy (asyncId) {
     contextMap.delete(asyncId);
 }
 
+/**
+ * set the context object
+ * @param {*} context 
+ */
 function set(context) {
     contextMap.set(asyncHooks.executionAsyncId(), context);
 }
 
-function get() {
+/**
+ * get the key value from the context
+ * @param {*} key 
+ */
+function get(key) {
     const context = contextMap.get(asyncHooks.executionAsyncId());
-    return context;
+    if(context && context[key]) return context[key];
+    return null;
 }
 
+/**
+ * fetch the tracker id for request
+ */
 function id() {
-    const context = contextMap.get(asyncHooks.executionAsyncId());
-    if(context && context.tracerId) return context.tracerId;
-    return null;
+    try {
+        return this.get('tracerId');
+    } catch(err){
+        console.error(err);
+        return null;
+    }
 }
 
 /**
@@ -45,8 +60,6 @@ function restifyMiddleware({useHeader = false, headerName = null}) {
 }
 
 module.exports = {
-    set,
-    get,
     restifyMiddleware,
     id,
 };
