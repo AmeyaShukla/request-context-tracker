@@ -1,0 +1,28 @@
+{
+  "name": "request-context-tracker",
+  "version": "1.0.0",
+  "description": "request context middleware for major nodejs framework like restify, express etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmeyaShukla/request-context-tracker.git"
+  },
+  "keywords": [
+    "request",
+    "context",
+    "context",
+    "middleware"
+  ],
+  "author": "Ameya Shukla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmeyaShukla/request-context-tracker/issues"
+  },
+  "homepage": "https://github.com/AmeyaShukla/request-context-tracker#readme",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
+}
