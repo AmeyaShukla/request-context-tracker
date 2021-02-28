@@ -39,7 +39,7 @@ function get(key) {
  */
 function id() {
     try {
-        return this.get('tracerId');
+        return get('tracerId');
     } catch(err){
         console.error(err);
         return null;
